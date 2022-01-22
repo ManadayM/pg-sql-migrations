@@ -31,28 +31,31 @@ app.get('/posts', async (req, res) => {
       </thead>
       <tbody>
         ${rows.map(row => {
-    return (`
+          return (`
             <tr>
               <td>${row.id}</td>
               <td>${row.loc.x}</td>
               <td>${row.loc.y}</td>
             </tr>
           `);
-  }).join('')}
+        }).join('')}
       </tbody>
     </table>
     <form method="POST">
-        <h3>Create Post</h3>
-        <div>
-          <label>Lng</label>
-          <input name="lng" />
-        </div>
-        <div>
+      <h3>Create Post</h3>
+
+      <div>
+        <label>Lng</label>
+        <input name="lng" />
+      </div>
+
+      <div>
         <label>Lat</label>
         <input name="lat" />
-        </div>
-        <button type="submit">Create</button>
-      </form>
+      </div>
+
+      <button type="submit">Create</button>
+    </form>
   `)
 });
 
@@ -65,8 +68,8 @@ app.post('/posts', async (req, res) => {
   );
 
   res.redirect('/posts');
-})
+});
 
 app.listen(3005, () => {
-  console.log('Listening on 3005')
+  console.log('Listening on 3005');
 });
